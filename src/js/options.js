@@ -16,9 +16,7 @@ const Options = {
       ['upgradeMessage', true],
       ['dynamicIcon', false],
       ['badge', true],
-      ['tracking', true],
       ['showCached', true],
-      ['apiKey', ''],
     ].map(async ([option, defaultValue]) => {
       const el = document
         .querySelector(
@@ -40,14 +38,6 @@ const Options = {
         el.value = await getOption(option, defaultValue)
       }
     })
-
-    document
-      .querySelector('[data-i18n="optionApiKey"]')
-      .parentNode.querySelector('input')
-      .addEventListener(
-        'input',
-        async (event) => await setOption('apiKey', event.target.value)
-      )
 
     document
       .querySelector('.options__cache')

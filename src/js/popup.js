@@ -5,42 +5,6 @@
 const { agent, open, i18n, getOption, setOption, promisify, sendMessage } =
   Utils
 
-const baseUrl = 'https://www.wappalyzer.com'
-const utm = '?utm_source=popup&utm_medium=extension&utm_campaign=wappalyzer'
-
-const footers = [
-  {
-    heading: 'Generate sales leads',
-    body: 'Find new prospects by the technologies they use. Reach out to customers of Shopify, Magento, Salesforce and others.',
-    buttonText: 'Create a lead list',
-    buttonLink: `${baseUrl}/lists/${utm}`,
-  },
-  {
-    heading: 'Connect Wappalyzer to your CRM',
-    body: 'See the technology stacks of your leads without leaving your CRM. Connect to HubSpot, Pipedrive and many others.',
-    buttonText: 'See all apps',
-    buttonLink: `${baseUrl}/apps/${utm}`,
-  },
-  {
-    heading: 'Enrich your data with tech stacks',
-    body: 'Upload a list of websites to get a report of the technologies in use, such as CMS or ecommerce platforms.',
-    buttonText: 'Upload a list',
-    buttonLink: `${baseUrl}/lookup/${utm}#bulk`,
-  },
-  {
-    heading: 'Automate technology lookups',
-    body: 'Our APIs provide instant access to website technology stacks, contact details and social media profiles.',
-    buttonText: 'Compare APIs',
-    buttonLink: `${baseUrl}/api/${utm}`,
-  },
-  {
-    heading: 'Wappalyzer for businesses',
-    body: 'Sign up to use our tools for lead generation, market research and competitor analysis.',
-    buttonText: 'Compare plans',
-    buttonLink: `${baseUrl}/pricing/${utm}`,
-  },
-]
-
 const attributeKeys = [
   'phone',
   'skype',
@@ -247,32 +211,18 @@ const Popup = {
       empty: document.querySelector('.empty'),
       emptyReload: document.querySelector('.empty__reload'),
       footer: document.querySelector('.footer'),
-      game: document.querySelector('.ttt-game'),
       headerSwitchDisabled: document.querySelector('.header__switch--disabled'),
       headerSwitchEnabled: document.querySelector('.header__switch--enabled'),
       headerSwitches: document.querySelectorAll('.header__switch'),
       plusDownloadLink: document.querySelector(
         '.plus-download__button .button__link'
       ),
-      playGame: document.querySelector('.empty__play-game'),
-      plusConfigureApiKey: document.querySelector('.plus-configure__apikey'),
-      plusConfigureSave: document.querySelector('.plus-configure__save'),
       plusDownload: document.querySelector('.plus-download'),
       tabPlus: document.querySelector('.tab--plus'),
       terms: document.querySelector('.terms'),
       termsButtonAccept: document.querySelector('.terms__button--accept'),
       termsButtonDecline: document.querySelector('.terms__button--decline'),
-      footerButtonLink: document.querySelector('.footer .button__link'),
-      footerButtonText: document.querySelector('.footer .button__text'),
-      footerContentBody: document.querySelector('.footer__content-body'),
-      footerHeading: document.querySelector('.footer__heading'),
-      footerHeadingText: document.querySelector('.footer__heading-text'),
-      footerToggleClose: document.querySelector('.footer__toggle--close'),
-      footerToggleOpen: document.querySelector('.footer__toggle--open'),
       headerSettings: document.querySelector('.header__settings'),
-      headerThemeDark: document.querySelector('.header__theme--dark'),
-      headerThemeLight: document.querySelector('.header__theme--light'),
-      headerThemes: document.querySelectorAll('.header__theme'),
       issue: document.querySelector('.issue'),
       tabItems: document.querySelectorAll('.tab-item'),
       tabs: document.querySelectorAll('.tab'),
@@ -297,15 +247,6 @@ const Popup = {
 
     // Disabled domains
     let disabledDomains = await getOption('disabledDomains', [])
-
-    // Dark mode
-    const theme = await getOption('theme', 'light')
-
-    if (theme === 'dark') {
-      el.body.classList.add('dark')
-      el.headerThemeLight.classList.remove('header__icon--hidden')
-      el.headerThemeDark.classList.add('header__icon--hidden')
-    }
 
     // Terms
     const termsAccepted =
@@ -393,36 +334,9 @@ const Popup = {
       }
     }
 
-    // Plus configuration
-    el.plusConfigureApiKey.value = await getOption('apiKey', '')
-
-    el.plusConfigureSave.addEventListener('click', async (event) => {
-      await setOption('apiKey', el.plusConfigureApiKey.value)
-
-      await Popup.getPlus(url)
-    })
-
     // Header
     el.headerSettings.addEventListener('click', () =>
       chrome.runtime.openOptionsPage()
-    )
-
-    // Theme
-    el.headerThemes.forEach((headerTheme) =>
-      headerTheme.addEventListener('click', async () => {
-        const theme = await getOption('theme', 'light')
-
-        el.body.classList[theme === 'dark' ? 'remove' : 'add']('dark')
-        el.body.classList[theme === 'dark' ? 'add' : 'remove']('light')
-        el.headerThemeDark.classList[theme === 'dark' ? 'remove' : 'add'](
-          'header__icon--hidden'
-        )
-        el.headerThemeLight.classList[theme === 'dark' ? 'add' : 'remove'](
-          'header__icon--hidden'
-        )
-
-        await setOption('theme', theme === 'dark' ? 'light' : 'dark')
-      })
     )
 
     // Tabs
@@ -446,41 +360,6 @@ const Popup = {
     // Download
     el.plusDownloadLink.addEventListener('click', Popup.downloadCsv)
 
-    // Footer
-    const item =
-      footers[
-        Math.round(Math.random())
-          ? 0
-          : Math.round(Math.random() * (footers.length - 1))
-      ]
-
-    el.footerHeadingText.textContent = item.heading
-    el.footerContentBody.textContent = item.body
-    el.footerButtonText.textContent = item.buttonText
-    el.footerButtonLink.href = item.buttonLink
-
-    const collapseFooter = await getOption('collapseFooter', false)
-
-    if (collapseFooter) {
-      el.footer.classList.add('footer--collapsed')
-      el.footerToggleClose.classList.add('footer__toggle--hidden')
-      el.footerToggleOpen.classList.remove('footer__toggle--hidden')
-    }
-
-    el.footerHeading.addEventListener('click', async () => {
-      const collapsed = el.footer.classList.contains('footer--collapsed')
-
-      el.footer.classList[collapsed ? 'remove' : 'add']('footer--collapsed')
-      el.footerToggleClose.classList[collapsed ? 'remove' : 'add'](
-        'footer__toggle--hidden'
-      )
-      el.footerToggleOpen.classList[collapsed ? 'add' : 'remove'](
-        'footer__toggle--hidden'
-      )
-
-      await setOption('collapseFooter', !collapsed)
-    })
-
     Array.from(document.querySelectorAll('a[href^="http"]')).forEach((a) => {
       a.addEventListener('click', (event) => {
         event.preventDefault()
@@ -488,7 +367,12 @@ const Popup = {
 
         const { version } = chrome.runtime.getManifest()
 
-        open(a.href.replace(/__URL__/g, url).replace(/__VERSION__/g, version))
+        open(
+          a.href
+            .replace(/__URL__/g, url)
+            .replace(/__VERSION__/g, version)
+            .replace(/__AGENT__/g, agent)
+        )
 
         return false
       })
@@ -497,15 +381,6 @@ const Popup = {
     // Reload
     el.emptyReload.addEventListener('click', (event) => {
       chrome.tabs.reload({ bypassCache: true })
-    })
-
-    // Game
-    el.playGame.addEventListener('click', (event) => {
-      event.preventDefault()
-      event.stopImmediatePropagation()
-
-      el.playGame.classList.add('empty__play-game--hidden')
-      el.game.classList.remove('ttt-game--hidden')
     })
 
     // Apply internationalization
@@ -558,8 +433,6 @@ const Popup = {
 
     const el = {
       empty: document.querySelector('.empty'),
-      playGame: document.querySelector('.empty__play-game'),
-      game: document.querySelector('.ttt-game'),
       detections: document.querySelector('.detections'),
       issue: document.querySelector('.issue'),
       plusDownload: document.querySelector('.plus-download'),
@@ -571,8 +444,6 @@ const Popup = {
 
     if (!detections || !detections.length) {
       el.empty.classList.remove('empty--hidden')
-      el.playGame.classList.remove('empty__play-game--hidden')
-      el.game.classList.add('ttt-game--hidden')
       el.detections.classList.add('detections--hidden')
       el.issue.classList.add('issue--hidden')
       el.plusDownload.classList.add('plus-download--hidden')

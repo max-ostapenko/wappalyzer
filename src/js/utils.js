@@ -2,11 +2,6 @@
 /* eslint-env browser */
 /* globals chrome */
 
-// Manifest v2 polyfill
-if (chrome.runtime.getManifest().manifest_version === 2) {
-  chrome.action = chrome.browserAction
-}
-
 // eslint-disable-next-line no-unused-vars
 const Utils = {
   agent: chrome.runtime.getURL('/').startsWith('moz-')
