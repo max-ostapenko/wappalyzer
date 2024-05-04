@@ -13,15 +13,29 @@
     "eslint-plugin-json": "^2.1.2",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^29.7.0",
     "prettier": "^2.1.2",
-    "terminal-overwrite": "^2.0.1"
+    "terminal-overwrite": "^2.0.1",
+    "webpagetest": "github:HTTPArchive/WebPageTest.api-nodejs"
   },
   "scripts": {
     "lint": "eslint src/**/*.{js,json} && jsonlint -jsV ./schema.json --trim-trailing-commas --enforce-double-quotes ./src/technologies/ && jsonlint -js --trim-trailing-commas --enforce-double-quotes ./src/categories.json",
     "lint:fix": "eslint --fix src/**/*.{js,json} && jsonlint -isV ./schema.json --trim-trailing-commas --enforce-double-quotes ./src/technologies/ && jsonlint -is --trim-trailing-commas --enforce-double-quotes ./src/categories.json",
     "validate": "yarn run lint && node ./bin/validate.js",
+    "test": "jest",
     "convert": "node --no-warnings ./bin/convert.js",
     "prettify": "jsonlint -si --trim-trailing-commas --enforce-double-quotes ./src/categories.json ./src/technologies/*.json",
     "build": "yarn run validate && yarn run prettify && yarn run convert && node ./bin/build.js"
+  },
+  "jest": {
+    "reporters": [
+      "default",
+      [
+        "github-actions",
+        {
+          "silent": false
+        }
+      ]
+    ]
   }
 }
