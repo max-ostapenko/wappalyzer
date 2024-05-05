@@ -10,7 +10,7 @@ const {
   resolve,
   getTechnology,
 } = Wappalyzer
-const { agent, promisify, getOption, setOption, open, globEscape } = Utils
+const { promisify, getOption, setOption, open, globEscape } = Utils
 
 const expiry = 1000 * 60 * 60 * 48
 
