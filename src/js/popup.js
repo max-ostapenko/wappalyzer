@@ -182,7 +182,6 @@ const Popup = {
         '.plus-download__button .button__link'
       ),
       plusDownload: document.querySelector('.plus-download'),
-      tabPlus: document.querySelector('.tab--plus'),
       terms: document.querySelector('.terms'),
       termsButtonAccept: document.querySelector('.terms__button--accept'),
       termsButtonDecline: document.querySelector('.terms__button--decline'),
@@ -226,7 +225,6 @@ const Popup = {
       el.detections.classList.add('detections--hidden')
       el.issue.classList.add('issue--hidden')
       el.footer.classList.add('footer--hidden')
-      el.tabPlus.classList.add('tab--disabled')
 
       el.termsButtonAccept.addEventListener('click', async () => {
         await setOption('termsAccepted', true)
@@ -234,7 +232,6 @@ const Popup = {
 
         el.terms.classList.add('terms--hidden')
         el.footer.classList.remove('footer--hidden')
-        el.tabPlus.classList.remove('tab--disabled')
 
         Popup.driver('getDetections').then(Popup.onGetDetections.bind(this))
       })
@@ -245,7 +242,6 @@ const Popup = {
 
         el.terms.classList.add('terms--hidden')
         el.footer.classList.remove('footer--hidden')
-        el.tabPlus.classList.remove('tab--disabled')
 
         Popup.driver('getDetections').then(Popup.onGetDetections.bind(this))
       })
@@ -293,8 +289,6 @@ const Popup = {
         for (const headerSwitch of el.headerSwitches) {
           headerSwitch.classList.add('header__switch--hidden')
         }
-
-        el.tabPlus.classList.add('tab--disabled')
       }
     }
 
