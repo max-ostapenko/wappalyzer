@@ -34,8 +34,6 @@ const Options = {
         el.addEventListener('click', async () => {
           await setOption(option, !!el.checked)
         })
-      } else if (el.type === 'password') {
-        el.value = await getOption(option, defaultValue)
       }
     })
 

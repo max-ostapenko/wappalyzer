@@ -648,8 +648,6 @@ const Driver = {
 
     await Driver.setIcon(url, resolved)
 
-    await Driver.ping()
-
     cache.hits += incrementHits ? 1 : 0
     cache.language = cache.language || language
 
@@ -924,83 +922,6 @@ const Driver = {
     xhrAnalyzed = {}
 
     await setOption('hostnames', {})
-  },
-
-  /**
-   * Anonymously send identified technologies to wappalyzer.com
-   * This function can be disabled in the extension settings
-   */
-  async ping() {
-    const tracking = await getOption('tracking', true)
-    const termsAccepted =
-      agent === 'chrome' || (await getOption('termsAccepted', false))
-
-    if (tracking && termsAccepted) {
-      const urls = Object.keys(Driver.cache.hostnames).reduce(
-        (urls, hostname) => {
-          if (Object.keys(urls).length >= 25) {
-            return urls
-          }
-
-          // eslint-disable-next-line standard/computed-property-even-spacing
-          const { language, detections, hits, https } =
-            Driver.cache.hostnames[hostname]
-
-          const url = `http${https ? 's' : ''}://${hostname}`
-
-          if (!hostnameIgnoreList.test(hostname) && hits) {
-            urls[url] = urls[url] || {
-              technologies: resolve(detections).reduce(
-                (technologies, { name, confidence, version, rootPath }) => {
-                  if (confidence === 100) {
-                    technologies[name] = {
-                      version,
-                      hits,
-                      rootPath,
-                    }
-                  }
-
-                  return technologies
-                },
-                {}
-              ),
-              meta: {
-                language,
-              },
-            }
-          }
-
-          return urls
-        },
-        {}
-      )
-
-      const count = Object.keys(urls).length
-
-      const lastPing = await getOption('lastPing', Date.now())
-
-      if (
-        count &&
-        ((count >= 25 && lastPing < Date.now() - 1000 * 60 * 60) ||
-          (count >= 5 && lastPing < Date.now() - expiry))
-      ) {
-        await setOption('lastPing', Date.now())
-
-        try {
-          await Driver.post('https://ping.wappalyzer.com/v2/', {
-            version: chrome.runtime.getManifest().version,
-            urls,
-          })
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          console.error(error)
-        }
-
-        Object.keys(Driver.cache.hostnames).forEach((hostname) => {
-          Driver.cache.hostnames[hostname].hits = 0
-        })
-      }
-    }
   },
 }
 
