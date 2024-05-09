@@ -33,7 +33,6 @@ jobs:
           WPT_SERVER: "webpagetest.httparchive.org"
           WPT_API_KEY: ${{ secrets.HA_API_KEY }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        if: ${{ env.WPT_API_KEY != '' }}
         run: |
           echo "::group::Unit tests"
             npm test
