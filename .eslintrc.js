@@ -4,16 +4,19 @@ module.exports = {
     browser: true,
     node: true,
   },
+  parser: '@babel/eslint-parser',
   parserOptions: {
-    parser: 'babel-eslint',
+    requireConfigFile: false,
   },
   extends: [
     '@nuxtjs',
     'prettier',
-    'prettier/vue',
     'plugin:prettier/recommended',
     'plugin:nuxt/recommended',
     'plugin:json/recommended',
   ],
   plugins: ['prettier'],
+  rules: {
+    'array-callback-return': 'off',
+  },
 }
