@@ -95,7 +95,6 @@ async function getDom(technologies) {
             }
 
             if (text) {
-              // eslint-disable-next-line unicorn/prefer-text-content
               const value = (node.innerText ? node.innerText.trim() : '').slice(
                 0,
                 1000000
@@ -245,7 +244,7 @@ const Content = {
       )
 
       // Text
-      // eslint-disable-next-line unicorn/prefer-text-content
+
       const text = document.body.innerText.replace(/\s+/g, ' ').slice(0, 25000)
 
       // CSS rules
@@ -332,7 +331,6 @@ const Content = {
                 .split('/')
                 .shift()}`,
 
-              // eslint-disable-next-line unicorn/prefer-text-content
               `https://${ad.innerText.split('\n').pop()}`,
             ]),
           ]
@@ -402,10 +400,10 @@ const Content = {
             args instanceof Error
               ? [args.toString()]
               : args
-              ? Array.isArray(args)
-                ? args
-                : [args]
-              : [],
+                ? Array.isArray(args)
+                  ? args
+                  : [args]
+                : [],
         },
         (response) => {
           chrome.runtime.lastError

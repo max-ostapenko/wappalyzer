@@ -219,12 +219,12 @@ function getTechnologySpend(technologies) {
   const spend = totals.xhigh
     ? 'Very high'
     : totals.high
-    ? 'High'
-    : totals.mid
-    ? 'Medium'
-    : totals.low
-    ? 'Low'
-    : 'Very low'
+      ? 'High'
+      : totals.mid
+        ? 'Medium'
+        : totals.low
+          ? 'Low'
+          : 'Very low'
 
   return spend
 }
@@ -748,6 +748,7 @@ const Popup = {
       const data = await response.json()
 
       if (!response.ok) {
+        // eslint-disable-next-line unicorn/error-message
         const error = new Error()
 
         error.data = data

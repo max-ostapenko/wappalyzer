@@ -33,10 +33,10 @@ function getRequiredTechnologies(name, categoryId) {
   return name
     ? Wappalyzer.requires.find(({ name: _name }) => _name === name).technologies
     : categoryId
-    ? Wappalyzer.categoryRequires.find(
-        ({ categoryId: _categoryId }) => _categoryId === categoryId
-      ).technologies
-    : undefined
+      ? Wappalyzer.categoryRequires.find(
+          ({ categoryId: _categoryId }) => _categoryId === categoryId
+        ).technologies
+      : undefined
 }
 
 function isSimilarUrl(a, b) {
@@ -942,7 +942,6 @@ const Driver = {
             return urls
           }
 
-          // eslint-disable-next-line standard/computed-property-even-spacing
           const { language, detections, hits, https } =
             Driver.cache.hostnames[hostname]
 
