@@ -22,6 +22,7 @@
     "lint:fix": "eslint --fix src/**/*.{js,json} && jsonlint -isV ./schema.json --trim-trailing-commas --enforce-double-quotes ./src/technologies/ && jsonlint -is --trim-trailing-commas --enforce-double-quotes ./src/categories.json",
     "validate": "npm run lint && node ./bin/validate.js",
     "convert": "node --no-warnings ./bin/convert.js",
+    "upload": "node ./bin/upload_bq_table.js",
     "build": "npm run validate && npm run convert && node ./bin/build.js",
     "build:safari": "xcrun safari-web-extension-converter --swift --project-location build --force src",
     "manifest": "node ./bin/manifest.js"
