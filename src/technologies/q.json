@@ -196,7 +196,10 @@
       "poa"
     ],
     "saas": true,
-    "scriptSrc": "\\.quantserve\\.com/quant\\.js",
+    "scriptSrc": [
+      "\\.quantserve\\.com/quant\\.js",
+      "\\.quantcount\\.com"
+    ],
     "website": "https://www.quantcast.com/products/measure-audience-insights"
   },
   "Quantum Metric": {
@@ -208,6 +211,18 @@
     "saas": true,
     "scriptSrc": "cdn\\.quantummetric\\.com",
     "website": "https://www.quantummetric.com/"
+  },
+  "Quarto": {
+    "cats": [
+      57
+    ],
+    "description": "Quarto is an open-source scientific and technical publishing system.",
+    "icon": "Quarto.png",
+    "js": [
+      "quartoOpenSearch"
+    ],
+    "scriptSrc": "/quarto\\.js",
+    "website": "https://quarto.org"
   },
   "Quasar": {
     "cats": [

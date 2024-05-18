@@ -4073,7 +4073,8 @@
     "saas": true,
     "scriptSrc": [
       "//(?:cas\\.criteo\\.com|(?:[^/]\\.)?criteo\\.net)/",
-      "//static\\.criteo\\.net/js/ld/ld\\.js"
+      "//static\\.criteo\\.net/js/ld/ld\\.js",
+      "\\.criteo\\.com"
     ],
     "website": "https://criteo.com"
   },
@@ -4536,7 +4537,10 @@
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": "\\.scorecardresearch\\.com/beacon\\.js|COMSCORE\\.beacon",
+    "scriptSrc": [
+      "\\.scorecardresearch\\.com/beacon\\.js|COMSCORE\\.beacon",
+      "https://sb\\.scorecardresearch\\.com/"
+    ],
     "website": "https://comscore.com"
   },
   "commercetools": {

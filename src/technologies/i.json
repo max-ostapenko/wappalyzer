@@ -73,7 +73,10 @@
       "iam_data": "",
       "szmvars": ""
     },
-    "scriptSrc": "^https?://(?:[^/]+\\.)?i(?:oam|v)wbox\\.de/",
+    "scriptSrc": [
+      "^https?://(?:[^/]+\\.)?i(?:oam|v)wbox\\.de/",
+      "\\.ioam\\.de"
+    ],
     "website": "https://www.infonline.de"
   },
   "IONOS": {

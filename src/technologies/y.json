@@ -212,7 +212,8 @@
       "yandex_ad_format": "",
       "yandex_partner_id": ""
     },
-    "scriptSrc": "https?://an\\.yandex\\.ru/",
+    "xhr": "https?://an\\.yandex\\.ru/",
+    "scriptSrc": "yandex\\.ru/ads/system/context\\.js",
     "website": "https://partner.yandex.com"
   },
   "Yandex.Messenger": {
@@ -241,7 +242,7 @@
       "yandex_metrika": ""
     },
     "scriptSrc": [
-      "mc\\.yandex\\.ru/metrika/(?:tag|watch)\\.js",
+      "mc\\.yandex\\.(ru|com)/metrika/(?:tag|watch)\\.js",
       "cdn\\.jsdelivr\\.net/npm/yandex\\-metrica\\-watch/watch\\.js"
     ],
     "website": "https://metrika.yandex.com"

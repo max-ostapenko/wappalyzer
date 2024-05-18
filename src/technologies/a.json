@@ -171,7 +171,8 @@
     "icon": "Accelerated-Mobile-Pages.svg",
     "oss": true,
     "website": "https://www.amp.dev",
-    "xhr": "cdn\\.ampproject\\.org"
+    "xhr": "cdn\\.ampproject\\.org",
+    "scriptSrc": "cdn\\.ampproject\\.org"
   },
   "AMP for WordPress": {
     "cats": [
@@ -1074,7 +1075,7 @@
       "payg"
     ],
     "saas": true,
-    "scriptSrc": "\\.adscale\\.com/",
+    "scriptSrc": "\\.adscale\\.(:?com|de)/",
     "website": "https://www.adscale.com"
   },
   "AdThrive": {
@@ -1284,7 +1285,7 @@
       "poa"
     ],
     "saas": true,
-    "scriptSrc": "\\.adform\\.net/",
+    "scriptSrc": "\\.adform\\.net",
     "website": "https://site.adform.com"
   },
   "Adjust": {
@@ -2817,6 +2818,22 @@
     ],
     "website": "https://pay.amazon.com",
     "xhr": "payments\\.amazon\\.com"
+  },
+  "Amazon Publisher Services": {
+    "cats": [
+      36
+    ],
+    "description": "Amazon Publisher Services is a suite of cloud services that brings solutions for header bidding, transparent marketplace, and real-time bidding.",
+    "icon": "Amazon.svg",
+    "js": {
+      "_aps": ""
+    },
+    "scriptSrc": [
+      "\\.amazon-adsystem\\.com/aax2/apstag\\.js",
+      "/apstag\\.js$"
+    ],
+    "xhr": "aps\\.amazon-adsystem\\.com/",
+    "website": "https://aps.amazon.com"
   },
   "Amazon S3": {
     "cats": [

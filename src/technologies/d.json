@@ -1465,19 +1465,6 @@
     "scriptSrc": "https?://fls\\.doubleclick\\.net",
     "website": "https://support.google.com/ds/answer/6029713?hl=en"
   },
-  "DoubleClick for Publishers (DFP)": {
-    "cats": [
-      36
-    ],
-    "description": "DoubleClick for Publishers (DFP) is a hosted ad serving platform that streamlines your ad management.",
-    "icon": "DoubleClick.svg",
-    "pricing": [
-      "freemium"
-    ],
-    "saas": true,
-    "scriptSrc": "googletagservices\\.com/tag/js/gpt(?:_mobile)?\\.js",
-    "website": "https://www.google.com/dfp"
-  },
   "DoubleVerify": {
     "cats": [
       36,
@@ -1490,6 +1477,7 @@
       "poa"
     ],
     "saas": true,
+    "xhr": "\\.doubleverify\\.com",
     "website": "https://doubleverify.com"
   },
   "Dovetale": {

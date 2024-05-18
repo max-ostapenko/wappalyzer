@@ -126,12 +126,13 @@
   },
   "Facebook Login": {
     "cats": [
-      69
+      59
     ],
     "description": "Facebook Login is a way for people to create accounts and log into your app across multiple platforms.",
     "icon": "Facebook.svg",
     "js": {
-      "FB.getLoginStatus": ""
+      "FB.getLoginStatus": "",
+      "FB.login": ""
     },
     "website": "https://developers.facebook.com/docs/facebook-login/"
   },
@@ -154,13 +155,27 @@
     "dom": "img[src*='facebook.com/tr']",
     "icon": "Facebook.svg",
     "js": {
-      "_fbq": ""
+      "_fbq": "",
+      "fbq.version": "^(\\d+\\.\\d+\\.\\d+)$\\;version:\\1"
     },
     "scriptSrc": [
       "connect\\.facebook.\\w+/signals/config/\\d+\\?v=([\\d\\.]+)\\;version:\\1",
       "connect\\.facebook\\.\\w+/.+/fbevents\\.js"
     ],
     "website": "https://facebook.com"
+  },
+  "Facebook SDK": {
+    "cats": [
+      36
+    ],
+    "description": "Facebook SDK is a set of tools that enables developers to integrate Facebook with their app or website.",
+    "icon": "Facebook.svg",
+    "js": {
+      "FB": ""
+    },
+    "scriptSrc": "connect\\.facebook\\.net/.+/sdk\\.js",
+    "website": "https://developers.facebook.com/docs/javascript"
+
   },
   "Facil-iti": {
     "cats": [
@@ -378,7 +393,10 @@
       "payg"
     ],
     "website": "https://www.fastly.com",
-    "xhr": "\\.fastly\\.net"
+    "xhr": [
+      "fastly-insights\\.com",
+      "\\.fastly\\.net"
+    ]
   },
   "Fastspring": {
     "cats": [
@@ -708,7 +726,8 @@
   "Firebase": {
     "cats": [
       34,
-      47
+      47,
+      88
     ],
     "cpe": "cpe:2.3:a:google:firebase_cloud_messaging:*:*:*:*:*:*:*:*",
     "description": "Firebase is a Google-backed application development software that enables developers to develop iOS, Android and Web apps.",

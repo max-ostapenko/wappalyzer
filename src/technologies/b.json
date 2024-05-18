@@ -2786,7 +2786,8 @@
     },
     "scriptSrc": [
       "^https?://s\\d\\.buysellads\\.com/",
-      "servedby-buysellads\\.com/monetization(?:\\.[\\w\\d]+)?\\.js"
+      "servedby-buysellads\\.com/monetization(?:\\.[\\w\\d]+)?\\.js",
+      "\\.buysellads\\.com"
     ],
     "website": "https://buysellads.com"
   },

@@ -116,6 +116,7 @@
   },
   "RTB House": {
     "cats": [
+      36,
       77
     ],
     "description": "RTB House is a company that provides learning-powered retargeting solutions for brands and agencies.",
@@ -125,7 +126,8 @@
     ],
     "saas": true,
     "website": "https://www.rtbhouse.com",
-    "xhr": "\\.creativecdn\\.com"
+    "xhr": "\\.creativecdn\\.com",
+    "scriptSrc": "\\.creativecdn\\.com"
   },
   "RX Web Server": {
     "cats": [
@@ -2399,7 +2401,7 @@
     },
     "icon": "Rubicon Project.svg",
     "saas": true,
-    "scriptSrc": "https?://[^/]*\\.rubiconproject\\.com",
+    "scriptSrc": "rubiconproject\\.com",
     "website": "https://rubiconproject.com/",
     "xhr": "\\.rubiconproject\\.com"
   },

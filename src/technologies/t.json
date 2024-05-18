@@ -2065,7 +2065,8 @@
       "TiktokAnalyticsObject": ""
     },
     "website": "https://ads.tiktok.com",
-    "xhr": "analytics\\.tiktok\\.com"
+    "xhr": "analytics\\.tiktok\\.com",
+    "scriptSrc": "analytics\\.tiktok\\.com"
   },
   "Tiki Wiki CMS Groupware": {
     "cats": [
@@ -2260,6 +2261,7 @@
     "js": {
       "TistoryBlog": ""
     },
+    "scriptSrc": "tistory1\\.daumcdn\\.net",
     "website": "https://tistory.com"
   },
   "Titan": {
@@ -3586,7 +3588,7 @@
     "saas": true,
     "scriptSrc": "\\.adsrvr\\.org/",
     "website": "https://www.thetradedesk.com",
-    "xhr": "adsvr\\.org"
+    "xhr": "adsrvr\\.org"
   },
   "thttpd": {
     "cats": [

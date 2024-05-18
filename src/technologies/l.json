@@ -1224,7 +1224,8 @@
     "description": "LiveIntent is an email ad monetization platform.",
     "icon": "LiveIntent.svg",
     "js": {
-      "LI.advertiserId": "\\d+"
+      "LI.advertiserId": "\\d+",
+      "liQ": ""
     },
     "pricing": [
       "poa"

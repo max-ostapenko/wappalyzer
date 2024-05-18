@@ -1568,6 +1568,22 @@
     "saas": true,
     "website": "https://www.gomag.ro"
   },
+  "Google Ad Manager": {
+    "description": "Google Ad Manager is an ad management platform for large publishers.",
+    "scriptSrc": [
+      "tpc\\.googlesyndication\\.com/",
+      "securepubads\\.g\\.doubleclick\\.net/"
+    ],
+    "xhr": [
+      "securepubads\\.g\\.doubleclick\\.net/",
+      "securepubads\\.g\\.doubleclick\\.net/gampad/ads"
+    ],
+    "website": "https://admanager.google.com",
+    "cats": [
+      36
+    ],
+    "icon": "GoogleAdManager.png"
+  },
   "Google AdSense": {
     "cats": [
       36
@@ -1584,10 +1600,12 @@
     },
     "saas": true,
     "scriptSrc": [
-      "googlesyndication\\.com/",
-      "ad\\.ca\\.doubleclick\\.net",
-      "2mdn\\.net",
-      "ad\\.ca\\.doubleclick\\.net"
+      "pagead2\\.googlesyndication\\.com/pagead/js/adsbygoogle\\.js",
+      "www\\.google\\.com/adsense/search/ads\\.js",
+      "2mdn\\.net/"
+    ],
+    "xhr": [
+      "pagead2\\.googlesyndication\\.com/"
     ],
     "website": "https://www.google.com/adsense/start/"
   },
@@ -1617,7 +1635,7 @@
       "freemium"
     ],
     "saas": true,
-    "scriptSrc": "\\.googleadservices\\.com/pagead/conversion_async\\.js",
+    "scriptSrc": "https://www\\.googleadservices\\.com/pagead/conversion_async\\.js",
     "scripts": "gtag\\([^)]+'(AW-)",
     "website": "https://support.google.com/google-ads/answer/1722022"
   },
@@ -1663,6 +1681,17 @@
     },
     "scriptSrc": "google-analytics\\.com\\/plugins\\/ua\\/(?:ec|ecommerce)\\.js",
     "website": "https://developers.google.com/analytics/devguides/collection/analyticsjs/enhanced-ecommerce"
+  },
+  "Google API":{
+    "cats": [
+      59
+    ],
+    "description": "Google APIs are application programming interfaces developed by Google which allow communication with Google Services and their integration to other services.",
+    "icon": "Google.svg",
+    "scriptSrc": [
+      "apis\\.google\\.com\/js\/api(:client)?\\.js"
+    ],
+    "website": "https://developers.google.com/products"
   },
   "Google App Engine": {
     "cats": [
@@ -1767,6 +1796,15 @@
     ],
     "website": "https://support.google.com/merchants/answer/7105655?hl=en"
   },
+  "Google Docs": {
+    "cats": [
+      24
+    ],
+    "description": "Google Docs is an online word processor that allows to create, and collaborate on online documents with secure sharing in real-time and from any device.",
+    "icon": "Google Docs.png",
+    "dom": "iframe[src^='https://docs.google.com/document/']",
+    "website": "https://www.google.com/docs/about/"
+  },
   "Google Font API": {
     "cats": [
       17
@@ -1819,7 +1857,8 @@
     "icon": "Google Maps.svg",
     "js": {
       "GoogleMap": "",
-      "googleMapsConfig": ""
+      "googleMapsConfig": "",
+      "google.maps": ""
     },
     "scriptSrc": [
       "(?:maps\\.google\\.com/maps\\?file=api(?:&v=([\\d.]+))?|maps\\.google\\.com/maps/api/staticmap)\\;version:API v\\1",
@@ -1884,6 +1923,7 @@
       "securepubads\\.g\\.doubleclick.net/tag/js/gpt\\.js",
       "pagead2\\.googlesyndication\\.com/tag/js/gpt\\.js"
     ],
+    "implies": "Google Ad Manager",
     "website": "https://developers.google.com/publisher-tag/guides/get-started"
   },
   "Google Sign-in": {
@@ -1897,7 +1937,10 @@
       "google-signin-client_id": "",
       "google-signin-scope": ""
     },
-    "scriptSrc": "accounts\\.google\\.com/gsi/client",
+    "scriptSrc": [
+      "accounts\\.google\\.com/gsi/client",
+      "apis\\.google\\.com/js/platform\\.js"
+    ],
     "website": "https://developers.google.com/identity/sign-in/web"
   },
   "Google Sites": {
@@ -1908,6 +1951,27 @@
     "icon": "Google Sites.png",
     "url": "^https?://sites\\.google\\.com",
     "website": "https://sites.google.com"
+  },
+  "Google Sheets": {
+    "cats": [
+      24
+    ],
+    "description": "Google Forms is a spreadsheet application that allows to create and edit online spreadsheets.",
+    "dom": "form[action*='docs.google.com/sheets/']",
+    "icon": "Google Sheets.png",
+    "website": "https://www.google.com/sheets/about/"
+  },
+  "Google Tag": {
+    "cats": [
+      10
+    ],
+    "description": "Gooogle Tag is a web analytics service that tracks and reports website traffic.",
+    "icon": "GoogleTag.svg",
+    "js": {
+      "google_tag_data": ""
+    },
+    "scripSrc": "googletagmanager\\.com/gtag/js",
+    "website": "https://developers.google.com/tag-platform/gtagjs"
   },
   "Google Tag Manager": {
     "cats": [
@@ -1920,7 +1984,7 @@
     ],
     "icon": "Google Tag Manager.svg",
     "js": {
-      "googletag": ""
+      "google_tag_manager": ""
     },
     "saas": true,
     "scriptSrc": "googletagmanager\\.com/gtm\\.js",

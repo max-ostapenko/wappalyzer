@@ -1032,5 +1032,17 @@
     "oss": true,
     "website": "https://utteranc.es/",
     "xhr": "\\.utteranc\\.es"
+  },
+  "Unified ID": {
+    "cats": [
+      36
+    ],
+    "description": "Unified ID is an open-source identity solution built for the open internet.",
+    "icon": "UnifiedID.png",
+    "js": {
+      "__uid2": ""
+    },
+    "scriptSrc": "\\.uidapi.com",
+    "website": "https://unifiedid.com"
   }
 }
