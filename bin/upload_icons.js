@@ -1,12 +1,15 @@
-// not tested
-
 const { Storage } = require('@google-cloud/storage');
 const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const BUCKET_NAME = 'your-bucket-name';
-const ICONS_DIR = './icons'; // Local directory where your PNG icons are stored
+const BUCKET_NAME = 'wappalizer-icons';
+const ICONS_DIR = (() => {
+  const fileDir = path.dirname(require.main.filename).split('/')
+  fileDir.pop() // Remove current bin directory
+  const appDir = fileDir.join('/')
+  return appDir + '/src/images/icons/converted'; // Local directory where your PNG icons are stored
+})()
 
 const storage = new Storage();
 

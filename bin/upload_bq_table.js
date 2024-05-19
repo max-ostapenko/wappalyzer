@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { BigQuery } = require('@google-cloud/bigquery');
 
-GCP_PROJECT = 'max-ostapenko';
+GCP_PROJECT = 'httparchive';
 
 async function readJsonFiles(directory) {
   const files = fs.readdirSync(directory);
