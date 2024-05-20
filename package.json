@@ -24,8 +24,7 @@
     "validate": "npm run lint && node ./bin/validate.js",
     "test": "jest",
     "convert": "node --no-warnings ./bin/convert.js",
-    "prettify": "jsonlint -si --trim-trailing-commas --enforce-double-quotes ./src/categories.json ./src/technologies/*.json",
-    "build": "npm run validate && npm run prettify && npm run convert && node ./bin/build.js"
+    "build": "npm run validate && npm run convert && node ./bin/build.js"
   },
   "jest": {
     "reporters": [
