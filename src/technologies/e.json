@@ -1937,16 +1937,6 @@
     "scriptSrc": "\\.(?:extole|xtlo)\\.(?:com|net)/",
     "website": "https://www.extole.com"
   },
-  "eyeota": {
-    "cats": [
-      36
-    ],
-    "description": "Eyeota is a global provider of audience data for marketing and advertising.",
-    "icon": "eyeota.png",
-    "website": "https://www.eyeota.com",
-    "scriptSrc": "eyeota\\.net"
-
-  },
   "Ezoic": {
     "cats": [
       10,
@@ -2308,5 +2298,14 @@
       "generator": "^experiencedCMS$"
     },
     "website": "https://experiencedcms.berkearas.de"
+  },
+  "eyeota": {
+    "cats": [
+      36
+    ],
+    "description": "Eyeota is a global provider of audience data for marketing and advertising.",
+    "icon": "eyeota.png",
+    "scriptSrc": "eyeota\\.net",
+    "website": "https://www.eyeota.com"
   }
 }
