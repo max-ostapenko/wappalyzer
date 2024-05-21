@@ -35,8 +35,8 @@ function runWPTTest(url) {
         fs.appendFileSync(
           'test-results.md',
           '<details>\n' +
-            `<summary><strong>Technologies for ${url}</strong></summary>\n\n` +
-            `WPT test run results: ${response.data.summary}\n` +
+            `<summary><strong>WPT test run for ${url}</strong></summary>\n\n` +
+            `Results: ${response.data.summary}\n` +
             (isDirectRun
               ? 'Detected technologies:\n' +
                 `\`\`\`json\n${JSON.stringify(technologies, null, 4)}\n\`\`\`\n`
