@@ -81,7 +81,7 @@ jobs:
 
             # Run WebPageTest for each URL
             for TEST_WEBSITE in "${URLS[@]}"; do
-              echo "::group::Detecting technologies for $TEST_WEBSITE"
+              echo "::group::Running WPT test for $TEST_WEBSITE"
               node tests/wpt.js "$TEST_WEBSITE"
               echo "::endgroup::"
             done

@@ -5300,17 +5300,5 @@
     "oss": true,
     "scriptSrc": "@tarekraafat/autocomplete\\.js@([\\d\\.]+)/\\;version:\\1",
     "website": "https://tarekraafat.github.io/autoComplete.js"
-  },
-  "ADEX": {
-    "cats": [
-      36
-    ],
-    "description": "The ADEX is a platfrom that provides combined DMP & Data Marketplace solutions.",
-    "icon": "ADEX.png",
-    "scriptSrc": "theadex.com",
-    "js": {
-      "adex.v": "([\\d-]+)\\;version:\\1"
-    },
-    "website": "https://theadex.com/"
   }
 }
