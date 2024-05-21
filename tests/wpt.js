@@ -13,7 +13,7 @@ const wpt = new WebPageTest(wptServer, wptApiKey)
  * Runs a WebPageTest (WPT) test for a given URL.
  *
  * @param {string} url - The URL to run the test on.
- * @returns {Promise<object>} A promise that resolves with an object containing the custom metrics.
+ * @returns {Promise<object>} A promise that resolves with a test result JSON.
  * @throws {Error} If the test run fails or the response status code is not 200.
  */
 function runWPTTest(url) {
@@ -35,10 +35,10 @@ function runWPTTest(url) {
         fs.appendFileSync(
           'test-results.md',
           '<details>\n' +
-            `<summary><strong>Custom metrics for ${url}</strong></summary>\n\n` +
+            `<summary><strong>Technologies for ${url}</strong></summary>\n\n` +
             `WPT test run results: ${response.data.summary}\n` +
             (isDirectRun
-              ? 'Changed custom metrics values:\n' +
+              ? 'Detected technologies:\n' +
                 `\`\`\`json\n${JSON.stringify(technologies, null, 4)}\n\`\`\`\n`
               : '') +
             '</details>\n'
