@@ -5,7 +5,7 @@ const testWebsite = 'https://almanac.httparchive.org/en/2022/'
 let responseData, firstView
 beforeAll(async () => {
   responseData = await runWPTTest(testWebsite)
-  firstView = responseData.data.runs['1'].firstView
+  firstView = responseData.runs['1'].firstView
 }, 400000)
 
 test('wappalyzer successful', () => {
