@@ -29,6 +29,7 @@ jobs:
         run: yarn run validate
 
       - name: Run WebPageTest with unit tests
+        id: unit-test
         env:
           WPT_SERVER: "webpagetest.httparchive.org"
           WPT_API_KEY: ${{ secrets.HA_API_KEY }}
@@ -39,6 +40,7 @@ jobs:
           echo "::endgroup::"
 
       - name: Run WebPageTest for more websites
+        id: wpt-test
         env:
           WPT_SERVER: "webpagetest.httparchive.org"
           WPT_API_KEY: ${{ secrets.HA_API_KEY }}
@@ -79,7 +81,7 @@ jobs:
 
             # Run WebPageTest for each URL
             for TEST_WEBSITE in "${URLS[@]}"; do
-              echo "::group::Detecting technologies for $TEST_WEBSITE"
+              echo "::group::Running WPT test for $TEST_WEBSITE"
               node tests/wpt.js "$TEST_WEBSITE"
               echo "::endgroup::"
             done
@@ -89,7 +91,7 @@ jobs:
 
       - name: Add comment with results
         uses: mshick/add-pr-comment@v2
-        if: always()
+        if: steps.unit-test.outcome == 'success' || steps.wpt-test.outcome == 'success'
         with:
           refresh-message-position: true
           message-path: test-results.md
