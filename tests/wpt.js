@@ -7,8 +7,6 @@ const isDirectRun = require.main === module
 const wptServer = process.env.WPT_SERVER
 const wptApiKey = process.env.WPT_API_KEY
 const PRnumber = parseInt(process.env.PR_NUMBER)
-
-console.log(wptServer, wptApiKey, PRnumber)
 const wpt = new WebPageTest(wptServer, wptApiKey)
 
 /**
@@ -19,7 +17,7 @@ const wpt = new WebPageTest(wptServer, wptApiKey)
  * @throws {Error} If the test run fails or the response status code is not 200.
  */
 function runWPTTest(url) {
-  const options = { key: wptApiKey, wappalyzerpr: PRnumber }
+  const options = { key: wptApiKey, wappalyzerPR: PRnumber }
 
   return new Promise((resolve, reject) => {
     wpt.runTestAndWait(url, options, (error, response) => {
