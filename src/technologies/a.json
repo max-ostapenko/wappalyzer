@@ -2494,7 +2494,7 @@
     "meta": {
       "generator": "^All in One SEO Pro \\(AIOSEO\\) ([\\d\\.]+)\\;version:\\1"
     },
-     "icon": "AIOSEO.svg",
+    "icon": "AIOSEO.svg",
     "pricing": [
       "freemium",
       "low",
