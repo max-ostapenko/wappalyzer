@@ -4994,7 +4994,7 @@
       "ARRAffinity": "",
       "TiPMix": ""
     },
-    "description": "Azure1 is a cloud computing service for building, testing, deploying, and managing applications and services through Microsoft-managed data centers.",
+    "description": "Azure is a cloud computing service for building, testing, deploying, and managing applications and services through Microsoft-managed data centers.",
     "dns": {
       "NS": [
         "\\.azure-dns\\."
