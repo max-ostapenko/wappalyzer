@@ -47,6 +47,7 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           # Get the PR body
+          echo "PR body: $PR_NUMBER"
           PR_BODY="$(cat <<'EOF'
           ${{ github.event.pull_request.body }}
           EOF
