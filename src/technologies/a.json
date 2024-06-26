@@ -2465,22 +2465,14 @@
       "generator": "^All in One SEO \\(AIOSEO\\) ([\\d\\.]+)\\;version:\\1"
     },
     "dom": {
-      "script.aioseo-schema": {
-        "attributes": {
-          "class": ""
-        }
-      }
+      "script.aioseo-schema": {}
     },
     "html": [
       "<!-- All in One SEO Pack ([\\d.]+) \\;version:\\1",
       "<!-- All in One SEO ([\\d.]+) \\;version:\\1"
     ],
     "icon": "AIOSEO.svg",
-    "pricing": [
-      "freemium",
-      "low",
-      "recurring"
-    ],
+    "oss": true,
     "implies": "WordPress",
     "website": "https://aioseo.com"
   },
