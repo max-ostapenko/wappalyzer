@@ -2469,9 +2469,10 @@
       }
     },
     "html": [
+      "<!-- All in One SEO Pack ([\\d.]+) \\;version:\\1",
       "<!-- All in One SEO ([\\d.]+) \\;version:\\1",
       "<!-- All in One SEO Pro ([\\d.]+) \\;version:\\1"
-    ],   
+    ],
     "icon": "AIOSEO.svg",
     "pricing": [
       "freemium",
