@@ -2461,14 +2461,40 @@
     ],
     "cpe": "cpe:2.3:a:aioseo:all_in_one_seo:*:*:*:*:*:wordpress:*:*",
     "description": "All in One SEO plugin optimizes WordPress website and its content for search engines.",
-    "html": "<!-- All in One SEO Pack ([\\d.]+) \\;version:\\1",
+    "dom": {
+      "script.aioseo-schema": {
+        "attributes": {
+          "class": ""
+        }
+      }
+    },
+    "html": [
+      "<!-- All in One SEO ([\\d.]+) \\;version:\\1",
+      "<!-- All in One SEO Pro ([\\d.]+) \\;version:\\1"
+    ],   
     "icon": "AIOSEO.svg",
     "pricing": [
       "freemium",
       "low",
       "recurring"
     ],
-    "requires": "WordPress",
+    "implies": "WordPress",
+    "website": "https://aioseo.com"
+  },
+  "All in One SEO Pro": {
+    "cats": [
+      54,
+      87
+    ],
+    "description": "All in One SEO plugin optimizes WordPress website and its content for search engines.",
+    "html": "<!-- All in One SEO Pro ([\\d.]+) \\;version:\\1",
+     "icon": "AIOSEO.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "All in One SEO Pack",
     "website": "https://aioseo.com"
   },
   "Alli": {
