@@ -17,7 +17,7 @@ const wpt = new WebPageTest(wptServer, wptApiKey)
  * @throws {Error} If the test run fails or the response status code is not 200.
  */
 function runWPTTest(url) {
-  const options = { key: wptApiKey, wappalyzerpr: PRnumber }
+  const options = { key: wptApiKey, wappalyzerPR: PRnumber }
 
   console.log(`WPT test run for ${url} started`)
   console.log('Options:', options)
