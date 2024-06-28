@@ -6,7 +6,7 @@ const isDirectRun = require.main === module
 
 const wptServer = process.env.WPT_SERVER
 const wptApiKey = process.env.WPT_API_KEY
-const PRnumber = parseInt(process.env.PR_NUMBER)
+const prNumber = parseInt(process.env.PR_NUMBER)
 const wpt = new WebPageTest(wptServer, wptApiKey)
 
 /**
@@ -17,11 +17,13 @@ const wpt = new WebPageTest(wptServer, wptApiKey)
  * @throws {Error} If the test run fails or the response status code is not 200.
  */
 function runWPTTest(url) {
-  const options = { key: wptApiKey, wappalyzerPR: PRnumber }
+  const options = { key: wptApiKey, wappalyzerPR: prNumber }
 
   return new Promise((resolve, reject) => {
     wpt.runTestAndWait(url, options, (error, response) => {
       if (error || response.statusCode !== 200) {
+        console.error(`WPT test run for ${url} failed:`)
+        console.error(error || response)
         reject(error || response)
       } else {
         const technologies = {
@@ -34,14 +36,15 @@ function runWPTTest(url) {
 
         fs.appendFileSync(
           'test-results.md',
-          '<details>\n' +
-            `<summary><strong>WPT test run for ${url}</strong></summary>\n\n` +
-            `Results: ${response.data.summary}\n` +
-            (isDirectRun
-              ? 'Detected technologies:\n' +
-                `\`\`\`json\n${JSON.stringify(technologies, null, 4)}\n\`\`\`\n`
-              : '') +
-            '</details>\n'
+          `<details>
+<summary><strong>WPT test run for ${url}</strong></summary>
+
+WPT test run results: ${response.data.summary}
+Detected technologies:
+\`\`\`json
+${JSON.stringify(technologies, null, 4)}
+\`\`\`
+</details>\n\n`
         )
 
         resolve(response.data)
