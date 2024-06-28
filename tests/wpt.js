@@ -19,11 +19,16 @@ const wpt = new WebPageTest(wptServer, wptApiKey)
 function runWPTTest(url) {
   const options = { key: wptApiKey, wappalyzerPR: PRnumber }
 
+  console.log(`WPT test run for ${url} started`)
+  console.log('Options:', options)
   return new Promise((resolve, reject) => {
     wpt.runTestAndWait(url, options, (error, response) => {
       if (error || response.statusCode !== 200) {
+        console.error(`WPT test run for ${url} failed:`)
+        console.error(error || response)
         reject(error || response)
       } else {
+        console.log(`WPT test run for ${url} completed`)
         const technologies = {
           detected: response.data.runs['1'].firstView.detected,
           detected_apps: response.data.runs['1'].firstView.detected_apps,
@@ -34,14 +39,15 @@ function runWPTTest(url) {
 
         fs.appendFileSync(
           'test-results.md',
-          '<details>\n' +
-            `<summary><strong>WPT test run for ${url}</strong></summary>\n\n` +
-            `Results: ${response.data.summary}\n` +
-            (isDirectRun
-              ? 'Detected technologies:\n' +
-                `\`\`\`json\n${JSON.stringify(technologies, null, 4)}\n\`\`\`\n`
-              : '') +
-            '</details>\n'
+          `<details>
+<summary><strong>WPT test run for ${url}</strong></summary>
+
+WPT test run results: ${response.data.summary}
+Detected technologies:
+\`\`\`json
+${JSON.stringify(technologies, null, 4)}
+\`\`\`
+</details>\n\n`
         )
 
         resolve(response.data)
