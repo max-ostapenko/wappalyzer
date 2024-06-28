@@ -1705,7 +1705,7 @@
       63
     ],
     "cpe": "cpe:2.3:a:google:cloud_platform:*:*:*:*:*:*:*:*",
-    "description": "Google Cloud is a suite of cloud computing services.",
+    "description": "Google Cloud1 is a suite of cloud computing services.",
     "icon": "Google Cloud.svg",
     "website": "https://cloud.google.com"
   },
