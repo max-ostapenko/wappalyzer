@@ -2079,6 +2079,16 @@
     "scriptSrc": "/wp-content/themes/default/",
     "website": "https://wordpress.org/themes/default"
   },
+  "WordPress Full Site Editing": {
+    "cats": [
+      51
+    ],
+    "description": "Beaver Builder is a drag and drop page builder for WordPress.",
+    "html": "<div class=\"wp-site-blocks\">",
+    "icon": "WordPress.svg",
+    "requires": "WordPress",
+    "website": "https://wordpress.org/documentation/article/site-editor/"
+  },
   "WordPress Multisite": {
     "cats": [
       88
