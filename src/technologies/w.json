@@ -2083,7 +2083,7 @@
     "cats": [
       51
     ],
-    "description": "Beaver Builder is a drag and drop page builder for WordPress.",
+    "description": "Full Site Editing enables users to design and customize their entire WordPress website with a block-based editor.",
     "html": "<div class=\"wp-site-blocks\">",
     "icon": "WordPress.svg",
     "requires": "WordPress",
