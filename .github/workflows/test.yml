@@ -34,10 +34,7 @@ jobs:
           WPT_SERVER: "webpagetest.httparchive.org"
           WPT_API_KEY: ${{ secrets.HA_API_KEY }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: |
-          echo "::group::Unit tests"
-            yarn test
-          echo "::endgroup::"
+        run: yarn test
 
       - name: Run WebPageTest for more websites
         id: wpt-test
@@ -45,15 +42,10 @@ jobs:
           WPT_SERVER: "webpagetest.httparchive.org"
           WPT_API_KEY: ${{ secrets.HA_API_KEY }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          # Get the PR body
-          PR_BODY="$(cat <<'EOF'
-          ${{ github.event.pull_request.body }}
-          EOF
-          )"
-
           # Read PR body into an array, removing line breaks and carriage returns
-          declare -a lines
+          lines=()
           while IFS= read -r line; do
             lines+=("${line//[$'\r\n']}")
           done <<< "$PR_BODY"
@@ -70,7 +62,7 @@ jobs:
           # If the index is valid, then parse the URLs
           if [ $start_index -gt -1 ]; then
             # Initialize an array for URLs
-            declare -a URLS
+            URLS=()
             url_pattern="((http|https|ftp):\/\/[a-zA-Z0-9.-]+(\.[a-zA-Z]{2,4})(\/[a-zA-Z0-9_.-]+)*(\/?)(\?[a-zA-Z0-9_.-]+=[a-zA-Z0-9%_.-]+)*(\#?)([a-zA-Z0-9%_.-=]+)*)"
 
             for ((i=start_index; i<${#lines[@]}; i++)); do
