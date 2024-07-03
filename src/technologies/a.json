@@ -2462,7 +2462,10 @@
     "cpe": "cpe:2.3:a:aioseo:all_in_one_seo:*:*:*:*:*:wordpress:*:*",
     "description": "All in One SEO optimizes a WordPress website and its content for search engines.",
     "meta": {
-      "generator": "^All in One SEO \\(AIOSEO\\) ([\\d\\.]+)\\;version:\\1"
+      "generator": [
+		"^All in One SEO \\(AIOSEO\\) ([\\d\\.]+)\\;version:\\1",
+		"^All in One SEO Pro \\(AIOSEO\\) ([\\d\\.]+)\\;version:Pro \\1"
+	  ]
     },
     "dom": {
       "script.aioseo-schema": {}
@@ -2474,25 +2477,11 @@
     ],
     "icon": "AIOSEO.svg",
     "oss": true,
-    "implies": "WordPress",
-    "website": "https://aioseo.com"
-  },
-  "All in One SEO Pro": {
-    "cats": [
-      54,
-      87
-    ],
-    "description": "All in One SEO optimizes a WordPress website and its content for search engines.",
-    "html": "<!-- All in One SEO Pro ([\\d.]+) \\;version:\\1",
-    "meta": {
-      "generator": "^All in One SEO Pro \\(AIOSEO\\) ([\\d\\.]+)\\;version:\\1"
-    },
-    "icon": "AIOSEO.svg",
     "pricing": [
       "freemium",
       "low",
       "recurring"
-    ],
+	  ],
     "implies": "WordPress",
     "website": "https://aioseo.com"
   },
