@@ -1,4 +1,4 @@
-name: Tests
+name: Linting
 
 on:
   pull_request_target:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
