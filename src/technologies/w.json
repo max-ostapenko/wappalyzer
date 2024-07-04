@@ -2090,17 +2090,6 @@
     "scriptSrc": "/wp-content/themes/default/",
     "website": "https://wordpress.org/themes/default"
   },
-  "WordPress Site Editor": {
-    "cats": [
-      51
-    ],
-    "description": "Full Site Editing enables users to design and customize their entire WordPress website with a block-based editor.",
-    "excludes": "WordPress Block Editor",
-    "html": "<div class=\"wp-site-blocks\">",
-    "icon": "WordPress.svg",
-    "requires": "WordPress",
-    "website": "https://wordpress.org/documentation/article/site-editor/"
-  },
   "WordPress Multisite": {
     "cats": [
       88
@@ -2126,6 +2115,17 @@
     "oss": true,
     "requires": "WordPress",
     "website": "https://wordpress.org/documentation/article/create-a-network/"
+  },
+  "WordPress Site Editor": {
+    "cats": [
+      51
+    ],
+    "description": "Full Site Editing enables users to design and customize their entire WordPress website with a block-based editor.",
+    "excludes": "WordPress Block Editor",
+    "html": "<div class=\"wp-site-blocks\">",
+    "icon": "WordPress.svg",
+    "requires": "WordPress",
+    "website": "https://wordpress.org/documentation/article/site-editor/"
   },
   "WordPress Super Cache": {
     "cats": [
