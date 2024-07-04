@@ -2066,6 +2066,16 @@
     ],
     "website": "https://wordpress.org"
   },
+  "WordPress Block Editor": {
+    "cats": [
+      51
+    ],
+    "description": "Sites using the WordPress Block Editor, also known as Gutenberg.",
+    "html": "<div[^>]+class=[\"']wp-block-*",
+    "icon": "WordPress.svg",
+    "requires": "WordPress",
+    "website": "https://wordpress.org/gutenberg/"
+  },
   "WordPress Default": {
     "cats": [
       80
@@ -2080,11 +2090,12 @@
     "scriptSrc": "/wp-content/themes/default/",
     "website": "https://wordpress.org/themes/default"
   },
-  "WordPress Full Site Editing": {
+  "WordPress Site Editor": {
     "cats": [
       51
     ],
     "description": "Full Site Editing enables users to design and customize their entire WordPress website with a block-based editor.",
+    "excludes": "WordPress Block Editor",
     "html": "<div class=\"wp-site-blocks\">",
     "icon": "WordPress.svg",
     "requires": "WordPress",
