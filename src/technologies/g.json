@@ -380,6 +380,7 @@
     ],
     "description": "GenerateBlocks is a small collection of lightweight WordPress blocks for the WordPress Block Editor.",
     "dom": "link#generateblocks-css",
+    "html": "<link[^>]* id=[^>]+generateblocks-css",
     "icon": "GenerateBlocks.svg",
     "implies": "WordPress Block Editor",
     "pricing": [
