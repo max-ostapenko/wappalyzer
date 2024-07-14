@@ -20,7 +20,7 @@ test('wappalyzer successful', () => {
     'not all technology lists are present'
   )
   assert(
-    firstView.detected_raw.length > 1,
+    Object.keys(firstView.detected_technologies).length > 1,
     'number of technologies detected <=1'
   )
 })
